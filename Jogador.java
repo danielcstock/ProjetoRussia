@@ -1,4 +1,12 @@
-public class Jogador extends ProfissionalEsportista {
+package projetorussia2018;
 
-    private Funcao Posicao;
+public class Jogador implements Esportista {
+
+    private String Nome;
+
+    private double Probabilidade;
+
+    public void RecalcularProbabilidade(Cartao c) {
+        
+    }
 }

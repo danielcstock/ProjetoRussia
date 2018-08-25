@@ -1,8 +1,22 @@
+package projetorussia2018;
+
+import java.util.LinkedList;
+
 public class Campeonato {
 
     private String Nome;
 
-    private String Pais;
+    private int Fase;
 
-    /*private Classificacao Pontuacao;*/
+    private LinkedList<Time> Times;
+
+    public Campeonato(String Nome) {
+    }
+
+    public void IniciarCampeonato() {
+    }
+
+    protected Fase IniciarFase(Fase f) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }

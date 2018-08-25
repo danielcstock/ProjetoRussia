@@ -1,17 +1,37 @@
+package projetorussia2018;
+
+import java.util.LinkedList;
+
 public class Partida {
 
-    private Time A;
+    private LinkedList<Time> Times;
 
-    private Time B;
-
-    public Placar atualizarPlacar(Placar p) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public Time JogarPartida() {
+        DistribuirCartoes();
+        return null;
     }
 
-    public void iniciarPartida() {
+    protected void DistribuirCartoes() {
+        Time A;
+        for(int i = 0; i < Times.size(); i++){
+            A = Times.get(i);
+            
+        }
     }
 
-    public Time encerrarPartida() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    protected void DisputarPenaltis() {
+        
+    }
+
+    protected void OrdenarTimes(Time V, Time P) {
+        Times.remove(V);
+        Times.remove(P);
+        Times.addLast(V);
+        Times.addFirst(P);
+    }
+
+    public void ConfigurarPartida(Time A, Time B) {
+        Times.add(A);
+        Times.add(B);
     }
 }

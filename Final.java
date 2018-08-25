@@ -1,6 +1,6 @@
 package projetorussia2018;
 
-public class Grupo extends Fase {
+public class Final extends Fase {
 
     public void IniciarFase() {
     }
