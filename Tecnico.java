@@ -3,9 +3,23 @@ package projetorussia2018;
 public class Tecnico implements Esportista {
 
     private String Nome;
+    private int Probabilidade;
+    private int Cartao;
 
-    private Double Probabilidade;
+    public Tecnico() {
+        this.Probabilidade =(int)(Math.random() * 100); // 0 a 100
+        if (this.Probabilidade < 50) {
+            this.Probabilidade = 50;
+        }
+    }
 
-    public void RecalcularProbabilidade(Cartao c) {
+    public int getProbabilidade() {
+        return Probabilidade;
+    }
+
+    public void recalcularProbabilidade() {
+        if (Cartao == 2) { // vermelho
+            this.Probabilidade = 0;
+        }
     }
 }
