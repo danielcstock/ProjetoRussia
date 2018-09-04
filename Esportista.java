@@ -1,5 +1,5 @@
 public interface Esportista {
 
-    public void recalcularProbabilidade();
-    public int getProbabilidade();
+    public void RecalcularProbabilidade();
+    public double getProbabilidade();
 }

@@ -1,24 +1,48 @@
 public class Jogador implements Esportista {
+
     private String Nome;
-    private int Probabilidade;
-    private int Cartao;
-    private boolean Suspenso;
+    private double ProbabilidadeInicialGols;
+    private double ProbabilidadeInicialCartao;
+    private double ProbabilidadeGols;
+    private double ProbabilidadeCartao;
+    private int CartaoAmarelo = 0;
+    private int CartaoVermelho = 0;
 
-    public Jogador(){
-        this.Probabilidade=(int)(Math.random()*100); // 0 a 100
-        this.Suspenso=false;
+    public double getProbabilidade(){
+        return this.ProbabilidadeGols;
     }
-
-    public int getProbabilidade() {
-        return Probabilidade;
-    }
-
-    public void recalcularProbabilidade(){
-        if (Cartao==1){ // amarelo
-            this.Probabilidade-=5;
-        }
-        else if (Cartao==2){ // vermelho
-            this.Probabilidade=0;
+    
+    public Jogador setNome(String nome){
+        try{
+            this.Nome = nome;
+            return this;
+        } catch(ExceptionInInitializerError e){
+            throw e;
         }
     }
-}
+    
+    public Jogador setProbabilidadeGols(double prob){
+        try{
+            this.ProbabilidadeInicialGols = prob;
+            this.ProbabilidadeGols = prob;
+            return this;
+        } catch(ExceptionInInitializerError e){
+            throw e;
+        }
+    }
+    
+    public Jogador setProbabilidadeCartao(double prob){
+        try{
+            this.ProbabilidadeInicialCartao = prob;
+            this.ProbabilidadeCartao = prob;
+            return this;
+        } catch (ExceptionInInitializerError e){
+            throw e;
+        }
+        
+    }
+
+    public void RecalcularProbabilidade(){
+        
+    }
+}    

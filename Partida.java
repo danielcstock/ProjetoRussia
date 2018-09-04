@@ -4,12 +4,18 @@ public class Partida {
 
     private LinkedList<Time> Times;
 
-    public Partida(LinkedList<Time> lista){
-        if(lista != null){
-            this.Times = lista;
+    public Partida(LinkedList<Time> ListaTimes){
+        try{
+            Times = new LinkedList();
+            this.Times.add(ListaTimes.get(0));
+            this.Times.add(ListaTimes.get(1));
+        } catch(Exception excecao){
+            /* Utilizar ExceptionInitializarError ou Exception?*/
+            System.out.println("FALHA NA CONSTRUÇÃO DO OBJETO 'Partida'.");
+            System.out.println(excecao.getMessage());
         }
     }
-
+    
     public Time JogarPartida() {
         DistribuirCartoes();
         return null;
@@ -17,9 +23,15 @@ public class Partida {
 
     protected void DistribuirCartoes() {
         Time A;
+        GeradorProbabilidade gp = new GeradorProbabilidade();
+        int p, cartoesAmarelos, cartoesVermelhos;
         for(int i = 0; i < Times.size(); i++){
             A = Times.get(i);
-            
+            p = gp.CalcularProbabilidade(A.getProbabilidadeCartoes());
+            cartoesVermelhos = p%2;
+            cartoesAmarelos = p - cartoesVermelhos;
+            System.out.println("Cartoes amarelos: " + cartoesAmarelos);
+            System.out.println("Cartoes vermelhos: " + cartoesVermelhos);
         }
     }
 
@@ -32,10 +44,5 @@ public class Partida {
         Times.remove(P);
         Times.addLast(V);
         Times.addFirst(P);
-    }
-
-    public void ConfigurarPartida(Time A, Time B) {
-        Times.add(A);
-        Times.add(B);
     }
 }

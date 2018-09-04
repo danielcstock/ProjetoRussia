@@ -1,7 +1,7 @@
 public class Tecnico implements Esportista {
 
     private String Nome;
-    private int Probabilidade;
+    private double Probabilidade;
     private int Cartao;
 
     public Tecnico() {
@@ -11,11 +11,11 @@ public class Tecnico implements Esportista {
         }
     }
 
-    public int getProbabilidade() {
+    public double getProbabilidade() {
         return Probabilidade;
     }
 
-    public void recalcularProbabilidade() {
+    public void RecalcularProbabilidade() {
         if (Cartao == 2) { // vermelho
             this.Probabilidade = 0;
         }
