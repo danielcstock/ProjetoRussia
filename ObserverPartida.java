@@ -1,5 +1,3 @@
-package projetorussia2018;
-
 public class ObserverPartida {
 
     private Time A;

@@ -1,5 +1,3 @@
-package projetorussia2018;
-
 import java.util.LinkedList;
 
 public abstract class Fase {

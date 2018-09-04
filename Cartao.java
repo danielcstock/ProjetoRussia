@@ -1,6 +1,3 @@
-package projetorussia2018;
-
-
 public class Cartao {
     int Penalizacao = 0;
     

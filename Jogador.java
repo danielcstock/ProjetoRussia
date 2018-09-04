@@ -1,5 +1,3 @@
-package projetorussia2018;
-
 public class Jogador implements Esportista {
     private String Nome;
     private int Probabilidade;

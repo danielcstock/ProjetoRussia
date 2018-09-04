@@ -1,10 +1,14 @@
-package projetorussia2018;
-
 import java.util.LinkedList;
 
 public class Partida {
 
     private LinkedList<Time> Times;
+
+    public Partida(LinkedList<Time> lista){
+        if(lista != null){
+            this.Times = lista;
+        }
+    }
 
     public Time JogarPartida() {
         DistribuirCartoes();

@@ -1,5 +1,3 @@
-package projetorussia2018;
-
 public class Tecnico implements Esportista {
 
     private String Nome;

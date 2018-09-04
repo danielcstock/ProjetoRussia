@@ -1,5 +1,3 @@
-package projetorussia2018;
-
 import java.util.LinkedList;
 
 public class Time {
@@ -7,7 +5,6 @@ public class Time {
     private String Nome;
     private LinkedList Esportista;
     private int Probabilidade;
-
 
     public void calcularProbabilidade(LinkedList<Esportista> listaEsportistas){
         int somaDasProbabilidas=0;
