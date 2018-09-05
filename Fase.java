@@ -3,6 +3,7 @@ import java.util.LinkedList;
 public abstract class Fase {
 
     private LinkedList<Time> Lista;
+    private Partida Jogo;
 
     public Fase(Fase f) {
     }
