@@ -9,6 +9,8 @@ public class ProjetoRussia2018 {
         t.add(b);
         Partida p = new Partida(t);
         p.JogarPartida();
+        LeitorArquivo la = new LeitorArquivo();
+        la.lerArquivo("escalacao.txt");
     }
     
 }
