@@ -1,6 +1,8 @@
 import java.io.*;
 import javax.xml.parsers.*;
 import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 public class LeitorXML {
     private String Arquivo;
@@ -64,11 +66,16 @@ public class LeitorXML {
         try{
             File xml = new File(Arquivo);
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+            dbf.setNamespaceAware(false);
             DocumentBuilder db = dbf.newDocumentBuilder();
-            //Document doc = db.parse(xml);
+            Document doc = db.parse(xml);
 
-            //doc.getDocumentElement().normalize();
-            //System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
+            doc.getDocumentElement().normalize();
+            //System.out.println("Root element :" + doc.getElementsByTagName().getNodeName());
+            NodeList lista = doc.getElementsByTagName("Time");
+            //for(Node item : lista){
+                System.out.println(lista.item(31).getTextContent());
+            //}
         } catch (Exception e) {
             //throw e;
         }
