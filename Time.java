@@ -3,7 +3,7 @@ import java.util.LinkedList;
 public class Time {
 
     private String Nome;
-    private LinkedList Esportista;
+    private LinkedList<Esportista> Jogadores;
     private Double ProbabilidadeGols;
     private Double ProbabilidadeCartoes;
     private int Pontos;
@@ -24,13 +24,17 @@ public class Time {
         return this.Pontos;
     }
 
+    public LinkedList<Esportista> getJogadores(){
+        return this.Jogadores;
+    }
+
     public void calcularProbabilidade(LinkedList<Esportista> listaEsportistas){
-        double somaDasProbabilidas=0;
+        double somaDasProbabilidades=0;
         for (int i = 0; i<listaEsportistas.size(); i++){
-            somaDasProbabilidas += listaEsportistas.get(i).getProbabilidade();
+            somaDasProbabilidades += listaEsportistas.get(i).getProbabilidadeGols();
         }
-        somaDasProbabilidas /= 11; // sem jogadores reservas
-        this.ProbabilidadeGols = somaDasProbabilidas;
+        somaDasProbabilidades /= 11; // sem jogadores reservas
+        this.ProbabilidadeGols = somaDasProbabilidades;
     }
 
     public void setProbabilidades(double probGols, double probCartoes){

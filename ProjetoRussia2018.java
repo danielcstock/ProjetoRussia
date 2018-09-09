@@ -7,7 +7,8 @@ public class ProjetoRussia2018 {
         b.setProbabilidades(4.9, 5.3);
         t.add(a);
         t.add(b);
-        Partida p = new Partida(t);
+        Partida p = new PartidaGrupo();
+        p = p.setTimes(t);
         p.JogarPartida();
         LeitorXML xmlReader = new LeitorXML();
         String[] elemPai = new String[1], atrPai = new String[1], atrFilho = new String[3], elemFilho = new String[1];

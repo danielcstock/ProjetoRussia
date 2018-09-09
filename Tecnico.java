@@ -1,23 +1,22 @@
 public class Tecnico implements Esportista {
 
     private String Nome;
-    private double Probabilidade;
+    private double ProbabilidadeGols;
+    private double ProbabilidadeCartao;
     private int Cartao;
 
     public Tecnico() {
-        this.Probabilidade =(int)(Math.random() * 100); // 0 a 100
-        if (this.Probabilidade < 50) {
-            this.Probabilidade = 50;
+        this.ProbabilidadeGols =(int)(Math.random() * 100); // 0 a 100
+        if (this.ProbabilidadeGols < 50) {
+            this.ProbabilidadeGols = 50;
         }
     }
 
-    public double getProbabilidade() {
-        return Probabilidade;
+    public double getProbabilidadeCartoes() {
+        return ProbabilidadeCartao;
     }
 
-    public void RecalcularProbabilidade() {
-        if (Cartao == 2) { // vermelho
-            this.Probabilidade = 0;
-        }
+    public double getProbabilidadeGols(){
+        return ProbabilidadeGols;
     }
 }

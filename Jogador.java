@@ -8,8 +8,20 @@ public class Jogador implements Esportista {
     private int CartaoAmarelo = 0;
     private int CartaoVermelho = 0;
 
-    public double getProbabilidade(){
+    public double getProbabilidadeGols(){
         return this.ProbabilidadeGols;
+    }
+
+    public double getProbabilidadeCartoes(){
+        return this.ProbabilidadeCartao;
+    }
+
+    public int getCartoesAmarelo(){
+        return this.CartaoAmarelo;
+    }
+
+    public int getCartoesVermelho(){
+        return this.CartaoVermelho;
     }
     
     public Jogador setNome(String nome){
@@ -30,6 +42,16 @@ public class Jogador implements Esportista {
             throw e;
         }
     }
+
+    public Jogador setCartaoAmarelo(int Cartao){
+        this.CartaoAmarelo += Cartao;
+        return this;
+    }
+
+    public Jogador setCartaoVermelho(int Cartao){
+        this.CartaoVermelho += Cartao;
+        return this;
+    }
     
     public Jogador setProbabilidadeCartao(double prob){
         try{
@@ -39,10 +61,5 @@ public class Jogador implements Esportista {
         } catch (ExceptionInInitializerError e){
             throw e;
         }
-        
-    }
-
-    public void RecalcularProbabilidade(){
-        
     }
 }    

@@ -71,7 +71,6 @@ public class LeitorXML {
             Document doc = db.parse(xml);
 
             doc.getDocumentElement().normalize();
-            //System.out.println("Root element :" + doc.getElementsByTagName().getNodeName());
             NodeList lista = doc.getElementsByTagName("Time");
             //for(Node item : lista){
                 System.out.println(lista.item(31).getTextContent());
