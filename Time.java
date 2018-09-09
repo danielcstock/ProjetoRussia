@@ -8,6 +8,35 @@ public class Time {
     private Double ProbabilidadeCartoes;
     private int Pontos;
 
+    public Time setNome(String Nome){
+        try{
+            this.Nome = Nome;
+            return this;
+        } catch(ExceptionInInitializerError e){
+            throw e;
+        }
+    }
+
+    public Time setJogadores(LinkedList<Esportista> Jogadores){
+        try{
+            this.Jogadores = Jogadores;
+            return this;
+        } catch(ExceptionInInitializerError e){
+            throw e;
+        }
+    }
+
+    public void setProbabilidades(double probGols, double probCartoes){
+        ProbabilidadeGols = probGols;
+        ProbabilidadeCartoes = probCartoes;
+    }
+    
+    public void setPontos(int p){
+        if(p >= 0){
+            this.Pontos = p;
+        }
+    }
+
     public double getProbabilidadeGols(){
         return this.ProbabilidadeGols;
     }
@@ -35,16 +64,5 @@ public class Time {
         }
         somaDasProbabilidades /= 11; // sem jogadores reservas
         this.ProbabilidadeGols = somaDasProbabilidades;
-    }
-
-    public void setProbabilidades(double probGols, double probCartoes){
-        ProbabilidadeGols = probGols;
-        ProbabilidadeCartoes = probCartoes;
-    }
-    
-    public void setPontos(int p){
-        if(p >= 0){
-            this.Pontos = p;
-        }
     }
 }

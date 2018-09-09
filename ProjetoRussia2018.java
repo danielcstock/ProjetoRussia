@@ -24,7 +24,7 @@ public class ProjetoRussia2018 {
             .setAtributosPai(atrPai)
             .setElementosFilho(elemFilho)
             .setAtributosFilho(atrFilho);
-        xmlReader.lerArquivo();
+        xmlReader.lerArquivo(t);
     }
     
 }
