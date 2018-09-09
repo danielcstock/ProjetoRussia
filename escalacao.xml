@@ -1553,6 +1553,11 @@
 			<ProbabilidadeCartao>2.9</ProbabilidadeCartao>
 		</Jogador>
 		<Jogador>
+			<Nome>Duje Caleta-Car</Nome>
+			<ProbabilidadeGols>4.7</ProbabilidadeGols>
+			<ProbabilidadeCartao>2.9</ProbabilidadeCartao>
+		</Jogador>
+		<Jogador>
 			<Nome>Danijel Subasic</Nome>
 			<ProbabilidadeGols>5.4</ProbabilidadeGols>
 			<ProbabilidadeCartao>0.1</ProbabilidadeCartao>

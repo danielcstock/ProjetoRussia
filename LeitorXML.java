@@ -64,7 +64,7 @@ public class LeitorXML {
     }
 
     /*  Metodos de execucao */
-    public void lerArquivo(LinkedList lista){
+    public LinkedList<Time> lerArquivo(LinkedList lista){
         try{
             File xml = new File(Arquivo);
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -74,13 +74,14 @@ public class LeitorXML {
 
             doc.getDocumentElement().normalize();
             NodeList NodeLista = doc.getElementsByTagName("Time");
+            
             for(int i = 0; i < NodeLista.getLength(); i++){
                 Node item = NodeLista.item(i);
                 Element elemento = (Element) item;
                 NodeList jogadores = item.getChildNodes();
                 LinkedList<Esportista> listaJogadores = new LinkedList<Esportista>();
-                //System.out.println(jogadores.getTextContent());
-                for(int j = 0; j < jogadores.getLength(); j++){
+                
+                for(int j = 0; j < 23; j++){
                     Element jogador = (Element)elemento.getElementsByTagName("Jogador").item(j);
                     Element nomeJogador = (Element)jogador.getElementsByTagName("Nome").item(0);
                     Element probGolsJogador = (Element)jogador.getElementsByTagName("ProbabilidadeGols").item(0);
@@ -91,14 +92,15 @@ public class LeitorXML {
                          .setProbabilidadeCartao(Double.parseDouble(probCartaoJogador.getTextContent()));
                     listaJogadores.add(p);
                 }
-                /*Time t = new Time();
+                Time t = new Time();
                 t = t.setNome(elemento.getElementsByTagName("Nome").item(0).getTextContent())
-                     .setJogadores(listaJogadores);*/
+                     .setJogadores(listaJogadores);
+                lista.add(t);
             }
-            //return lista;
+            return lista;
         } catch (Exception e) {
-            //throw e;
-            //return null;
+            System.out.println("Erro ao ler o arquivo. Verifique os dados de entrada.");
+            return null;
         }
     }
 }

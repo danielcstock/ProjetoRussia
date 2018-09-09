@@ -1,15 +1,18 @@
 import java.util.LinkedList;
 public class ProjetoRussia2018 {
     public static void main(String[] args) {
-        LinkedList<Time> t = new LinkedList();
-        Time a = new Time(), b = new Time();
+        
+        /*Time a = new Time(), b = new Time();
         a.setProbabilidades(6.5, 4.3);
         b.setProbabilidades(4.9, 5.3);
-        t.add(a);
+        /*t.add(a);
         t.add(b);
         Partida p = new PartidaGrupo();
         p = p.setTimes(t);
-        p.JogarPartida();
+        p.JogarPartida();*/
+
+        /* Leitura do arquivo com os dados de entrada */
+        LinkedList<Time> t = new LinkedList();
         LeitorXML xmlReader = new LeitorXML();
         String[] elemPai = new String[1], atrPai = new String[1], atrFilho = new String[3], elemFilho = new String[1];
         elemPai[0] = "Time";
@@ -24,7 +27,10 @@ public class ProjetoRussia2018 {
             .setAtributosPai(atrPai)
             .setElementosFilho(elemFilho)
             .setAtributosFilho(atrFilho);
-        xmlReader.lerArquivo(t);
+        t = xmlReader.lerArquivo(t);
+
+        
+        
     }
     
 }
