@@ -95,6 +95,8 @@ public class LeitorXML {
                 Time t = new Time();
                 t = t.setNome(elemento.getElementsByTagName("Nome").item(0).getTextContent())
                      .setJogadores(listaJogadores);
+                t.calcularProbabilidadeGols();
+                t.calcularProbabilidadeCartoes();
                 lista.add(t);
             }
             return lista;

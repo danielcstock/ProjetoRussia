@@ -1,8 +1,8 @@
+
 public class Russia2018Exception extends Exception{
     
-    public Exception ExceptionTimeNaoEscalado(){
-        Exception e = new Exception("Teste exception.");
-        return e;
+    public Russia2018Exception(String mensagemDeErro){
+        super(mensagemDeErro);
     }
 
 }

@@ -57,12 +57,21 @@ public class Time {
         return this.Jogadores;
     }
 
-    public void calcularProbabilidade(LinkedList<Esportista> listaEsportistas){
-        double somaDasProbabilidades=0;
-        for (int i = 0; i<listaEsportistas.size(); i++){
-            somaDasProbabilidades += listaEsportistas.get(i).getProbabilidadeGols();
+    public void calcularProbabilidadeGols(){
+        double somaDasProbabilidades = 0;
+        for (int i = 0; i<this.Jogadores.size(); i++){
+            somaDasProbabilidades += this.Jogadores.get(i).getProbabilidadeGols();
         }
-        somaDasProbabilidades /= 11; // sem jogadores reservas
+        somaDasProbabilidades /= this.Jogadores.size();
         this.ProbabilidadeGols = somaDasProbabilidades;
+    }
+
+    public void calcularProbabilidadeCartoes(){
+        double somaDasProbabilidades = 0;
+        for (int i = 0; i<this.Jogadores.size(); i++){
+            somaDasProbabilidades += this.Jogadores.get(i).getProbabilidadeCartoes();
+        }
+        somaDasProbabilidades /= this.Jogadores.size();
+        this.ProbabilidadeCartoes = somaDasProbabilidades;
     }
 }

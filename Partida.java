@@ -7,22 +7,13 @@ import java.util.Collections;
 public abstract class Partida {
     
     protected LinkedList<Time> Times;
-    private Observer obs = new Observer();
+    private Observer obs = new Observer(this);
 
-    public Partida setTimes(LinkedList<Time> ListaTimes){
-        try{
-            Times = new LinkedList();
-            this.Times.add(ListaTimes.get(0));
-            this.Times.add(ListaTimes.get(1));
-        } catch(Exception excecao){
-            /* Utilizar ExceptionInitializarError ou Exception?*/
-            System.out.println("FALHA NA CONSTRUÇÃO DO OBJETO 'Partida'.");
-            System.out.println(excecao.getMessage());
-        }
-        return this;
-    }
+    public abstract Partida setTimes(LinkedList<Time> ListaTimes); 
 
-    public abstract Time JogarPartida();
+    public abstract Placar JogarPartida(int TimeA, int TimeB);
+
+    public abstract void RodarFase();
 
     public void DistribuirCartoes(Time A, Time B){
         GeradorProbabilidade gp = new GeradorProbabilidade();
@@ -32,8 +23,10 @@ public abstract class Partida {
             p = gp.CalcularProbabilidade(A.getProbabilidadeCartoes());
             cartoesVermelhos = p%2;
             cartoesAmarelos = p - cartoesVermelhos;
-
-            obs.notificarTime(A, cartoesAmarelos, cartoesVermelhos);
+            for(int j = 0; j < cartoesAmarelos + cartoesVermelhos; j++){
+                this.DarCartoesJogadores(A, cartoesAmarelos, cartoesVermelhos);
+                obs.notificarTime(A, cartoesAmarelos, cartoesVermelhos);
+            } 
         }
     }
 
@@ -60,7 +53,15 @@ public abstract class Partida {
         j.setCartaoAmarelo(1);
     }
 
-    public void OrdenarTimes(Time V, Time P){
+    protected Placar MarcarGols(Time TimeA, Time TimeB){
+        Placar p = new Placar(TimeA, TimeB);
+        GeradorProbabilidade gp = new GeradorProbabilidade();
+        p.setPlacarTimeA(gp.CalcularProbabilidade(TimeA.getProbabilidadeGols()));
+        p.setPlacarTimeB(gp.CalcularProbabilidade(TimeB.getProbabilidadeGols()));
+        return p;
+    }
+
+    protected void OrdenarTimes(Time V, Time P){
         Collections.sort(Times, new Comparator<Time>(){
             @Override
             public int compare(Time A, Time B){
